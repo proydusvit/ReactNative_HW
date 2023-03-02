@@ -106,7 +106,7 @@ export default function LoginScreen({ navigation }) {
               <TouchableOpacity
                 onPress={() => navigation.navigate("Registration")}
               >
-                <Text style={styles.login}>Немає акаунту? Зареєструватися</Text>
+                <Text style={styles.name}>Немає акаунту? Зареєструватися</Text>
               </TouchableOpacity>
             </KeyboardAvoidingView>
           </View>
@@ -188,7 +188,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     lineHeight: 19,
   },
-  login: {
+   name: {
     color: "#1B4371",
     fontFamily: "Roboto-Regular",
     fontSize: 16,

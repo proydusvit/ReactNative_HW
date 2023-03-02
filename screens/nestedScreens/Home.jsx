@@ -14,7 +14,7 @@ import { Feather } from "@expo/vector-icons";
 
 export default function Home({ route, navigation }) {
   const [posts, setPosts] = useState([]);
-  const { login, email, avatar } = useSelector((state) => state.auth);
+  const {  name, email, avatar } = useSelector((state) => state.auth);
   const getAllPost = async () => {
     await db
       .firestore()
@@ -33,7 +33,7 @@ export default function Home({ route, navigation }) {
       <View style={styles.userInfo}>
         <Image source={{ uri: avatar }} style={styles.avatar} />
         <View style={styles.userData}>
-          <Text style={styles.name}>{login}</Text>
+          <Text style={styles.name}>{ name}</Text>
           <Text style={styles.email}>{email}</Text>
         </View>
       </View>
@@ -120,15 +120,14 @@ const styles = StyleSheet.create({
   },
   photo: {
     width: Dimensions.get("window").width - 32,
-    // marginHorizontal: 16,
-    // marginBottom: 8,
+
     height: 240,
     borderRadius: 8,
   },
   photoTitle: {
     marginBottom: 8,
     marginTop: 8,
-    // marginHorizontal: 16,
+ 
     fontFamily: "Roboto-Medium",
     fontSize: 16,
     lineHeight: 19,
@@ -139,7 +138,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    // marginHorizontal: 16,
+  
   },
   comments: {
     display: "flex",

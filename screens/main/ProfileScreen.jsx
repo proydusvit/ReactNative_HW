@@ -18,7 +18,7 @@ import db from "../../firebase/config";
 
 export default function ProfileScreen({ navigation }) {
   const [userPosts, setUserPosts] = useState([]);
-  const { userId, login, avatar } = useSelector((state) => state.auth);
+  const { userId,  name, avatar } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -50,7 +50,7 @@ export default function ProfileScreen({ navigation }) {
           <TouchableOpacity style={styles.logout} onPress={signOut}>
             <Feather name="log-out" size={24} color="#BDBDBD" />
           </TouchableOpacity>
-          <Text style={styles.login}>{login}</Text>
+          <Text style={styles. name}>{ name}</Text>
 
           <FlatList
             data={userPosts}
@@ -137,32 +137,30 @@ const styles = StyleSheet.create({
   },
   logout: {
     alignItems: "flex-end",
-    // position: "absolute",
+ 
     right: 16,
-    // top: 22,
+ 
   },
-  login: {
+  name : {
     textAlign: "center",
     color: "#212121",
     fontFamily: "Roboto-Medium",
     fontSize: 30,
     lineHeight: 35,
     letterSpacing: 0.01,
-    // ??
+ 
     marginTop: 46,
     marginBottom: 33,
   },
   post: {
-    // height: 299,
-    // marginTop: 32,
+  
     marginBottom: 32,
   },
   photo: {
     width: Dimensions.get("window").width - 32,
     height: 240,
     borderRadius: 8,
-    // marginHorizontal: 16,
-    // marginBottom: 8,
+  
   },
   photoTitle: {
     marginBottom: 8,
@@ -177,7 +175,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     alignItems: "center",
-    // marginHorizontal: 16,
+    
   },
   comments: {
     display: "flex",
@@ -197,7 +195,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   locationName: {
-    // marginLeft: 4,
+    
     textAlign: "right",
     color: "#212121",
     fontFamily: "Roboto-Regular",

@@ -20,7 +20,7 @@ export default function CommentsScreen({ route }) {
   const [allComments, setAllComments] = useState([]);
 
   const { postId, photo } = route.params;
-  const { login, avatar } = useSelector((state) => state.auth);
+  const {  name, avatar } = useSelector((state) => state.auth);
 
   useEffect(() => {
     getAllComments();
@@ -32,7 +32,7 @@ export default function CommentsScreen({ route }) {
       .collection("posts")
       .doc(postId)
       .collection("comments")
-      .add({ login, avatar, comment });
+      .add({ name, avatar, comment });
     setComment("");
   };
   const getAllComments = async () => {
@@ -91,10 +91,10 @@ const styles = StyleSheet.create({
   image: {
     height: 240,
     borderRadius: 8,
-    // width: Dimensions.get("window").width - 32,
+ 
     marginHorizontal: 16,
     marginBottom: 8,
-    // marginBottom: 32,
+
   },
   list: {
     marginBottom: 32,

@@ -26,7 +26,7 @@ export default function CreateScreen({ navigation }) {
   const [locationName, setLocationName] = useState("");
   const [location, setLocation] = useState(null);
 
-  const { userId, login } = useSelector((state) => state.auth);
+  const { userId,  name } = useSelector((state) => state.auth);
 
   useEffect(() => {
     (async () => {
@@ -68,7 +68,7 @@ export default function CreateScreen({ navigation }) {
       location: location.coords,
       locationName,
       userId,
-      login,
+       name,
     });
   };
 

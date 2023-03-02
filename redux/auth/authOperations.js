@@ -4,14 +4,14 @@ import db from "../../firebase/config";
 const { updateUserProfile, authSignOut, authStateChange } = authSlice.actions;
 
 export const authSignUpUser =
-  ({ login, mail, password, avatar }) =>
+  ({  name, mail, password, avatar }) =>
   async (dispatch, getState) => {
     try {
       await db.auth().createUserWithEmailAndPassword(mail, password);
       const user = await db.auth().currentUser;
 
       await user.updateProfile({
-        displayName: login,
+        displayName:  name,
         email: mail,
         photoURL: avatar,
       });
@@ -19,7 +19,7 @@ export const authSignUpUser =
       const { uid, displayName, email, photoURL } = await db.auth().currentUser;
 
       const userUpdateProfile = {
-        login: displayName,
+         name: displayName,
         userId: uid,
         email: email,
         avatar: photoURL,
@@ -51,7 +51,7 @@ export const authStateChangeUser = () => async (dispatch, getState) => {
       if (user) {
         const userUpdateProfile = {
           userId: user.uid,
-          login: user.displayName,
+           name: user.displayName,
           avatar: user.photoURL,
           email: user.email,
         };

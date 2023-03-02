@@ -20,7 +20,7 @@ import { Camera, CameraType } from "expo-camera";
 import { AntDesign } from "@expo/vector-icons";
 
 const initialState = {
-  login: "",
+  name: "",
   mail: "",
   password: "",
   avatar: null,
@@ -129,12 +129,12 @@ export default function RegistrationScreen({ navigation }) {
               <Text style={styles.text}>Реєстрація</Text>
               <TextInput
                 style={styles.input}
-                value={state.login}
+                value={state.name}
                 placeholder="Імʼя"
                 placeholderTextColor="#BDBDBD"
                 onFocus={() => setIsShowKeyboard(true)}
                 onChangeText={(value) =>
-                  setState((prevState) => ({ ...prevState, login: value }))
+                  setState((prevState) => ({ ...prevState,  name: value }))
                 }
               />
               <TextInput
@@ -174,7 +174,7 @@ export default function RegistrationScreen({ navigation }) {
                 <Text style={styles.btnTitle}>Зареєструватися</Text>
               </TouchableOpacity>
               <TouchableOpacity onPress={() => navigation.navigate("Login")}>
-                <Text style={styles.login}>Вже є акаунт? Увійти</Text>
+                <Text style={styles.name}>Вже є акаунт? Увійти</Text>
               </TouchableOpacity>
             </KeyboardAvoidingView>
           </View>
@@ -277,7 +277,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     lineHeight: 19,
   },
-  login: {
+   name: {
     textAlign: "center",
     color: "#1B4371",
     fontFamily: "Roboto-Regular",
